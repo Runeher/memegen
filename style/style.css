@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'Anton'; /* 💡 Navnet du bruker i JS */
+  src: url('../fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.memegen-wrapper {
+  max-width: 700px;
+  margin: auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.memegen-wrapper .input-group {
+  margin-bottom: 10px;
+}
+
+.memegen-wrapper .input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.memegen-wrapper input[type="text"],
+.memegen-wrapper input[type="number"],
+.memegen-wrapper input[type="color"],
+.memegen-wrapper input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.memegen-wrapper .input-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.memegen-wrapper .input-row .small {
+  flex: 1;
+}
+
+.memegen-wrapper .input-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (min-width: 600px) {
+  .memegen-wrapper .input-pair {
+    flex-direction: row;
+  }
+  .memegen-wrapper .input-pair .input-group {
+    flex: 1;
+  }
+}
+
+.memegen-wrapper .recent-memes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.memegen-wrapper .recent-thumb {
+  max-width: 120px;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.memegen-wrapper .button-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.memegen-wrapper .formButton {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  flex: 1 0 45%;
+  text-align: center;
+}
+
+.memegen-wrapper .formButton:hover {
+  background: #555;
+}
+
+.memegen-wrapper canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
