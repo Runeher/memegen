@@ -14,44 +14,44 @@ canvas {
 
 
 <div class="memegen-wrapper" style="display: flex; flex-wrap: wrap; gap: 20px; overflow: hidden;">
-  <h2 style="text-align: center; width: 100%; margin-bottom: 10px;">Make Your Meme</h2>
+  <h3 style="text-align: center; width: 100%; margin-bottom: 2px;"><{_MD_MEMEGEN_HEADER1}></h3>
 
   <div style="flex: 1; min-width: 300px; position: relative;">
     <div id="previewContainer" style="display: block; position: relative;">
       <canvas id="previewCanvas" style="max-width: 100%; border-radius: 8px;"></canvas>
-      <div id="previewPlaceholder" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-20deg); font-size: 2rem; color: rgba(0,0,0,0.1); pointer-events: none;">PREVIEW</div>
+      <div id="previewPlaceholder" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-20deg); font-size: 2rem; color: rgba(0,0,0,0.1); pointer-events: none;"><{_MD_MEMEGEN_PREVIEW}></div>
     </div>
   </div>
 
   <div style="flex: 1; min-width: 300px;">
     <form method="post" enctype="multipart/form-data">
       <div class="input-group">
-        <label for="image">Upload Image (jpg/png/gif):</label><br>
+        
         <label class="formButton" style="display: inline-block; padding: 10px 20px; cursor: pointer;">
-          <span id="uploadLabel">Upload Image (jpg/png/gif)</span>
+          <span id="uploadLabel"><{_MD_MEMEGEN_UPLOAD}></span>
           <input type="file" name="image" id="image" accept=".jpg,.jpeg,.png,.gif" required style="display:none;">
         </label>
       </div>
 
       <div class="input-group">
-        <label for="topText">Top Text:</label>
-        <input type="text" name="topText" id="topText" maxlength="100">
+        <label for="topText"><{_MD_MEMEGEN_TOP_TEXT}></label>
+        <input type="text" name="topText" id="topText" maxlength="200">
       </div>
 
       <div class="input-group">
-        <label for="bottomText">Bottom Text:</label>
-        <input type="text" name="bottomText" id="bottomText" maxlength="100">
+        <label for="bottomText"><{_MD_MEMEGEN_BOTTOM_TEXT}></label>
+        <input type="text" name="bottomText" id="bottomText" maxlength="200">
       </div>
 
       <div class="input-pair" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
         <div class="input-group" style="display: flex; align-items: center; gap: 10px;">
-          <label for="fontSize">Font Size:</label>
+          <label for="fontSize"><{_MD_MEMEGEN_FONT_SIZE}></label>
           <input type="range" name="fontSize" id="fontSize" value="32" min="10" max="100" step="1" oninput="document.getElementById('fontSizeValue').textContent = this.value">
           <span id="fontSizeValue">32</span>
         </div>
 
         <div class="input-group" style="display: flex; align-items: center; gap: 10px; max-width: 100%;">
-          <label for="fontColor">Font Color:</label>
+          <label for="fontColor"><{_MD_MEMEGEN_FONT_COLOR}></label>
           <input type="color" name="fontColor" id="fontColor" value="#ffffff" style="width: 36px; height: 32px;">
           <input type="range" id="hueSlider" min="0" max="360" value="0" style="flex: 1; height: 8px; max-width: 160px; background: linear-gradient(to right, red, yellow, lime, cyan, blue, magenta, red); border: none;">
           <span id="colorValue">#ffffff</span>
@@ -59,8 +59,13 @@ canvas {
       </div>
 
       <div class="input-group">
-        <button type="button" id="saveMeme" class="formButton">Save Meme</button>
+        <button type="button" id="saveMeme" class="formButton"><{_MD_MEMEGEN_DOWNLOAD}></button>
       </div>
+	  <{if $xoops_isadmin}>
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="<{$xoops_url}>/modules/memegen/admin/index.php" style="font-size: 0.75em; color: #888;"><{_MD_MEMEGEN_ADMIN_SECTION}></a>
+  </div>
+<{/if}>
     </form>
   </div>
 </div>
@@ -190,7 +195,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
   imageInput.addEventListener('change', function (e) {
     const label = document.getElementById('uploadLabel');
-    if (label) label.textContent = 'Choose Another Image';
+    if (label) label.textContent = '<{_MD_MEMEGEN_ANOTHER_IMAGE}>';
 
     const reader = new FileReader();
     reader.onload = function (event) {
