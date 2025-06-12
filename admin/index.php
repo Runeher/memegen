@@ -53,34 +53,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-echo '<h2>MemeGen Watermark Settings</h2>';
+echo '<h2>' . _MI_MEMEGEN_MENU_HOME . '</h2>';
 
 echo '<form method="post" style="margin-bottom:20px;">';
 echo '<fieldset style="padding:10px; border:1px solid #ccc; position:relative;">';
-echo '<legend><strong>Watermark Settings</strong></legend>';
+echo '<legend><strong>' . _MI_MEMEGEN_MENU_SETTINGS . '</strong></legend>';
 
 // VISUELL TILBAKEMELDING
 if ($feedback === 'enabled') {
-    echo '<div style="margin-bottom:12px; background:#dff0d8; color:#3c763d; border:1px solid #c5e2c8; border-radius:4px; padding:10px;">✅ Watermark is now enabled.</div>';
+    echo '<div style="margin-bottom:12px; background:#dff0d8; color:#3c763d; border:1px solid #c5e2c8; border-radius:4px; padding:10px;">✅ ' . _MI_MEMEGEN_MENU_ALERT1 . '</div>';
 } elseif ($feedback === 'disabled') {
-    echo '<div style="margin-bottom:12px; background:#f2dede; color:#a94442; border:1px solid #ebcccc; border-radius:4px; padding:10px;">❌ Watermark is now disabled.</div>';
+    echo '<div style="margin-bottom:12px; background:#f2dede; color:#a94442; border:1px solid #ebcccc; border-radius:4px; padding:10px;">❌ ' . _MI_MEMEGEN_MENU_ALERT2 . '</div>';
 } elseif ($feedback === 'text_updated') {
-    echo '<div style="margin-bottom:12px; background:#d9edf7; color:#31708f; border:1px solid #bce8f1; border-radius:4px; padding:10px;">✏️ Watermark text updated.</div>';
+    echo '<div style="margin-bottom:12px; background:#d9edf7; color:#31708f; border:1px solid #bce8f1; border-radius:4px; padding:10px;">✏️ ' . _MI_MEMEGEN_MENU_ALERT3 . '</div>';
 } elseif ($feedback === 'both') {
-    echo '<div style="margin-bottom:12px; background:#eaf5ea; color:#2c662d; border:1px solid #bce8bc; border-radius:4px; padding:10px;">✅ Watermark status and text updated.</div>';
+    echo '<div style="margin-bottom:12px; background:#eaf5ea; color:#2c662d; border:1px solid #bce8bc; border-radius:4px; padding:10px;">✅ ' . _MI_MEMEGEN_MENU_ALERT4 . '</div>';
 }
 
-echo '<label for="enable_watermark">Enable Watermark:</label> ';
+echo '<label for="enable_watermark">' . _MI_MEMEGEN_ADMIN_ENABLE_WATERMARK . '</label> ';
 echo '<select name="enable_watermark">';
-echo '<option value="1"' . ($watermarkEnabled ? ' selected' : '') . '>Yes</option>';
-echo '<option value="0"' . (!$watermarkEnabled ? ' selected' : '') . '>No</option>';
+echo '<option value="1"' . ($watermarkEnabled ? ' selected' : '') . '>' . _MI_MEMEGEN_ADMIN_WATERMARK_YES . '</option>';
+echo '<option value="0"' . (!$watermarkEnabled ? ' selected' : '') . '>' . _MI_MEMEGEN_ADMIN_WATERMARK_NO . '</option>';
 echo '</select><br><br>';
 
-echo '<label for="watermark_text">Watermark Text:</label> ';
+echo '<label for="watermark_text">' . _MI_MEMEGEN_MENU_TEXT . '</label> ';
 echo '<input type="text" name="watermark_text" value="' . htmlspecialchars($watermarkText, ENT_QUOTES) . '" size="40" />';
-echo '<br><br><input type="submit" value="Save Watermark Settings" class="formButton" />';
+echo '<br><br><input type="submit" value="' . _MI_MEMEGEN_ADMIN_WATERMARK_SAVE . '" class="formButton" />';
 echo '</fieldset>';
-echo '<small style="color:gray;">Watermark settings can also be changed under Preferences.</small>';
+echo '<small style="color:gray;">' . _MI_MEMEGEN_ADMIN_WATERMARK_INFO . '</small>';
 
 echo '</form>';
 
