@@ -1,0 +1,10 @@
+<h5>1.32 Alpha 1   [2025-06-21]</h5>
+<hr>
+- namespaces (mamba)
+- class autoloading with preloads(mamba)
+- semantic versioning (mamba)
+- added Meme generation from URL (mamba)
+
+<h5>1.0.0 Stable [2025-06-12]</h5>
+<hr>
+- original release (Runeher)

@@ -20,7 +20,3 @@ $xoopsTpl->assign('watermark_text', $watermarkText);
 $xoopsTpl->assign('watermark_enabled', $watermarkEnabled); // 🔥 MÅ hete dette
 
 include XOOPS_ROOT_PATH . '/footer.php';
-?>
-
-
-

@@ -1,13 +1,16 @@
 <?php
-$modversion['name'] = 'MemeGen';
-$modversion['version'] = '1.0';
-$modversion['description'] = 'Create memes with user-uploaded images and self-destruct after 20 minutes.';
+
+$moduleDirName      = basename(__DIR__);
+
+$modversion['version'] = '1.1.0';
+$modversion['name'] = _MI_MEMEGEN_NAME;
+$modversion['description'] = _MI_MEMEGEN_DESC; //'Create memes with user-uploaded images and self-destruct after 20 minutes.';
 $modversion['author'] = 'Runeher';
 $modversion['credits'] = 'XOOPS Community';
 $modversion['license'] = 'GPL';
 $modversion['official'] = 0;
-$modversion['image'] = 'images/memegen_icon.png';
-$modversion['dirname'] = 'memegen';
+$modversion['image'] = 'assets/images/memegen_icon.png';
+$modversion['dirname'] = $moduleDirName;
 
 // Admin
 $modversion['hasAdmin'] = 1;
@@ -27,6 +30,17 @@ $modversion['templates'] = [
 ];
 
 
+// ------------------- Blocks ------------------- //
+$modversion['blocks'][] = [
+    'file'        => 'memegen_promo.php',
+    'name'        => _MI_MEMEGEN_BLOCK_PROMO,
+    'description' => '_MI_MEMEGEN_BLOCK_PROMO_DESC',
+    'show_func'   => 'memegen_promo_show',
+    'template'    => 'memegen_promo.tpl',
+];
+
+
+
 $modversion['config'][] = [
     'name'        => 'watermark_text',
     'title'       => '_MI_MEMEGEN_WATERMARK_TEXT',
@@ -43,4 +57,24 @@ $modversion['config'][] = [
     'formtype' => 'yesno',
     'valuetype' => 'int',
     'default' => 1,
+];
+
+
+// for future Admin Preferences
+$modversion['config'][] = [
+    'name'        => 'url_support_enabled',
+    'title'       => '_MI_MEMEGEN_URL_SUPPORT',
+    'description' => '_MI_MEMEGEN_URL_SUPPORT_DESC',
+    'formtype'    => 'yesno',
+    'valuetype'   => 'int',
+    'default'     => 1
+];
+
+$modversion['config'][] = [
+    'name'        => 'allowed_image_hosts',
+    'title'       => '_MI_MEMEGEN_ALLOWED_HOSTS',
+    'description' => '_MI_MEMEGEN_ALLOWED_HOSTS_DESC',
+    'formtype'    => 'textarea',
+    'valuetype'   => 'array',
+    'default'     => "imgur.com\ni.imgur.com\npexels.com"
 ];

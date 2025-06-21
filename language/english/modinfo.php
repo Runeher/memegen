@@ -25,3 +25,7 @@ define('_MI_MEMEGEN_ENABLE_WATERMARK_DESC', 'Show watermark text on memes');
 
 define('_MI_MEMEGEN_WATERMARK_TEXT', 'Watermark text');
 define('_MI_MEMEGEN_WATERMARK_TEXT_DESC', 'Enter the watermark text to appear on memes');
+
+//Blocks
+define('_MI_MEMEGEN_BLOCK_PROMO', 'Meme Generator');
+define('_MI_MEMEGEN_BLOCK_PROMO_DESC', 'Meme Example generated with Meme Generator');
